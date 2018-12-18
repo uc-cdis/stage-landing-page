@@ -4,19 +4,58 @@
 }
 
 .tool-item {
+  width: 100%;
   padding: 20px 20px;
   margin: 20px 0;
   display: flex;
   align-items: center;
-}
-
-.tool-item p {
+  border-top: 1px solid var(--highlight-color);
 }
 
 .tool-item__icon {
-  width: 200px;
   padding: 20px 20px;
-  border: 2px solid var(--gray);
-  border-radius: var(--border-radius);
   margin-right: 10px;
+  width: 200px;
+}
+
+.tool-item__information {
+  list-style-type: none;
+  padding-inline-start: 0;
+  flex-basis: 65%;
+}
+
+.tool-item__category {
+  display: flex;
+  align-items: center;
+  padding-inline-start: 20px;
+  margin-bottom: 20px;
+}
+
+.tool-item__category-title {
+  margin-right: 10px;
+}
+
+.tool-item__category-list {
+  padding-inline-start: 0;
+}
+
+.tool-item__tag {
+  cursor: pointer;
+  display: inline-block;
+  color: var(--white);
+  list-style-type: none;
+  background-color: var(--blue);
+  padding: 5px 5px;
+  border-radius: var(--border-radius);
+  margin: 0 5px;
+}
+
+.tool-item__tag:hover {
+  background-color: var(--gray);
+}
+
+.tool-item__buttons {
+  display: flex;
+  flex-flow: column;
+  flex-basis: 20%;
 }

@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--gray);
   border-radius: var(--border-radius);
   height: 36px;
   padding: 5px 10px;
@@ -26,7 +26,7 @@
 
 .dropdown__icon {
   cursor: pointer;
-  border-left: 1px solid var(--blue);
+  border-left: 1px solid var(--gray);
   padding-left: 10px;
   height: 31px;
   width: 15px;
@@ -39,19 +39,22 @@
 }
 
 .dropdown__menu--open {
+  position: absolute;
   z-index: 100;
   height: unset;
   max-height: 200px;
   width: unset;
   visibility: visible;
-  border-bottom: 1px solid var(--blue);
-  border-left: 1px solid var(--blue);
-  border-right: 1px solid var(--blue);
+  border-bottom: 1px solid var(--gray);
+  border-left: 1px solid var(--gray);
+  border-right: 1px solid var(--gray);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
   margin-top: 0;
   padding-inline-start: 0px;
   overflow: scroll;
+  width: 448px;
+  background-color: var(--white);
 }
 
 .dropdown__menu-item {

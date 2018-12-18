@@ -4,11 +4,15 @@ date: 2018-12-14T11:33:55-06:00
 draft: true
 order: 2
 products:
-  DockStore:
+  dockstore:
+    name: DockStore
     capabilities:
       - Docker
     logo: img/dockstore.png
-  Gen3:
+    documentation: https://dockstore.org
+    url: https://docs.dockstore.org/
+  gen3:
+    name: Gen3
     capabilities:
       - Authentication
       - Authorization
@@ -24,14 +28,21 @@ products:
     documentation: https://gen3.org
     url: https://gen3.org
     logo: img/gen3.png
-  Terra:
+  terra:
+    name: Terra
     capabilities:
       - Data Analysis
     compatibilities:
       - Gen3
     datasets:
+      - Nurses' Health Study
+      - UK Biobank
+      - Human Cell Atlas
+      - AMP Parkinson's Disease
       - TopMED
       - GTex
+    url: https://bvdp-saturn-prod.appspot.com
+    documentation: https://bvdp-saturn-prod.appspot.com/#library/showcase
     logo: img/terra.svg
 datasets:
   - GTex

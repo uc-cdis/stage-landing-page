@@ -3,31 +3,36 @@
     {{ range $.Page.Param . }}
       <div class='tool-item'>
         <img class='tool-item__icon' src='{{ .logo }}' />
-        <ul>
-          <li>Capabilites:
-            <ul>
+        <ul class='tool-item__information'>
+          <li class='tool-item__category'>
+            <h3 class='tool-item__category-title'>Capabilities:</h3>
+            <ul class='tool-item__category-list'>
               {{ range .capabilities }}
-                <li> {{ . }}</li>
+                <li class='tool-item__tag'>{{ . }}</li>
               {{ end }}
             </ul>
           </li>
-          <li>Compatible with:
-            <ul>
+          <li class='tool-item__category'>
+            <h3 class='tool-item__category-title'>Compatible with:</h3>
+            <ul class='tool-item__category-list'>
               {{ range .compatibilities }}
-                <li> {{ . }}</li>
+                <li class='tool-item__tag'> {{ . }}</li>
               {{ end }}
             </ul>
           </li>
-          <li>Available datasets:
-            <ul>
+          <li class='tool-item__category'>
+            <h3 class='tool-item__category-title'>Available datasets:</h3>
+            <ul class='tool-item__category-list'>
               {{ range .datasets }}
-                <li> {{ . }}</li>
+                <li class='tool-item__tag'> {{ . }}</li>
               {{ end }}
             </ul>
           </li>
-          <li>Documentation: {{ .documentation }}</li>
-          <li>Link: {{ .url }}</li>
         </ul>
+        <div class='tool-item__buttons'>
+          <button onclick="window.open('{{ .url }}', '_blank')">Visit {{ .name }}</button>
+          <button onclick="window.open('{{ .documentation }}', '_blank')">Visit Documentation</button>
+        </div>
       </div>
     {{ end }}
   </div>
