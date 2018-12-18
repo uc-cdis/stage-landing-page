@@ -1,0 +1,22 @@
+.tools-list {
+  display: flex;
+  flex-flow: column;
+}
+
+.tool-item {
+  padding: 20px 20px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.tool-item p {
+}
+
+.tool-item__icon {
+  width: 200px;
+  padding: 20px 20px;
+  border: 2px solid var(--gray);
+  border-radius: var(--border-radius);
+  margin-right: 10px;
+}

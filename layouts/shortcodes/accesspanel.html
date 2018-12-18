@@ -1,0 +1,39 @@
+  <div class='about__access'>
+    <h3>Do you have access to STAGE?</h3>
+    <button class='about__button' onclick="window.location.href = '#tools'">Yes</button>
+    <button class='about__button' onclick="openAccessPanel('none')">No</button>
+    <button class='about__button' onclick="openAccessPanel('notSure')">I Don't Know</button>
+    <div class='access-panel hidden'>
+      <div class='no-access hidden'>
+        <div class='access-panel__information'>
+          You can browse without access!
+        </div>
+        <button>Browse Without Access</button>
+      </div>
+      <div class='not-sure-access hidden'>
+        <div class='access-panel__information'>
+          Please check your access by logging into Data STAGE:
+        </div>
+        <button>Check My Access</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function openAccessPanel(accessLevel) {
+  document.querySelector('.access-panel').classList.remove('hidden');
+  if (accessLevel === 'none') {
+    document.querySelector('.no-access').classList.remove('hidden');
+    document.querySelector('.not-sure-access').classList.add('hidden');
+  } else {
+    document.querySelector('.no-access').classList.add('hidden');
+    document.querySelector('.not-sure-access').classList.remove('hidden');
+  }
+}
+
+function closeAccessPanel() {
+  document.querySelector('.access-panel').classList.add('hidden');
+  document.querySelector('.not-sure-access').classList.add('hidden');
+  document.querySelector('.no-access').classList.add('hidden');
+}
+</script>

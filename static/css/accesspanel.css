@@ -1,0 +1,24 @@
+.access-panel {
+  display: flex;
+  flex-flow: column;
+  margin-top: 20px
+  height: unset;
+  opacity: 1;
+  width: 100%;
+  padding: 20px 0;
+  transition: height 5s;
+}
+
+.access-panel__icon {
+  cursor: pointer;
+}
+
+.no-access, .not-sure-access {
+}
+
+.hidden {
+  height: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+}

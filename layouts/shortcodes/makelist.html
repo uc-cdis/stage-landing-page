@@ -1,0 +1,7 @@
+{{ with .Get 0 }}
+  <ul>
+    {{ range $.Page.Param . }}
+      <li>{{ .title }}: <a href='mailto:{{ .email }}'>{{ .email }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}

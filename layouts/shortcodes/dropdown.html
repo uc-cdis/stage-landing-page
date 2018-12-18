@@ -1,0 +1,31 @@
+{{- $className := .Get 0 }}
+{{- $selection := .Get 1 }}
+
+{{ with .Get 0 }}
+  <div class='dropdown'>
+      <div id='{{ $className }}-select' class='dropdown__select'>
+        <div class='dropdown__input'>{{ $selection }}</div>
+        <img class='dropdown__icon' src='img/icons/dropdown.svg' onclick='onClick("{{$className}}")'/>
+      </div>
+      <ul id='{{ $className }}-menu' class='dropdown__menu'>
+        {{ range $.Page.Param . }}
+            <li class='dropdown__menu-item'>
+              <input type='checkbox' onclick="onChange(this)"/>
+              {{ . }}
+            </li>
+        {{ end }}
+      </ul>
+  </div>
+{{ end }}
+<script>
+  function onClick(className) {
+    console.log(className)
+    console.log(document.getElementById(`${className}-menu`))
+    document.getElementById(`${className}-menu`).classList.toggle('dropdown__menu--open');
+    document.getElementById(`${className}-select`).classList.toggle('dropdown__select--menu-open');
+  }
+
+  function onChange(e) {
+    console.log('e', e);
+  }
+</script>

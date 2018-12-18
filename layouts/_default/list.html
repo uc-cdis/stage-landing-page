@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ range (.Pages.ByParam "order") }}
+    <div class='section'>
+      {{ .Content }}
+    </div>
+  {{ end }}
+{{ end }}

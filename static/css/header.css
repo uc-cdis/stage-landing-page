@@ -1,0 +1,20 @@
+.header {
+  background-color: var(--gray);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+.header__logo {
+  width: 250px;
+}
+
+.header__link-section {
+  display: flex;
+}
+
+.header__link-section > * {
+  margin-left: 40px;
+}
