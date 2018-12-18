@@ -14,7 +14,7 @@
   border-top: 1px solid var(--highlight-color);
 }
 
-.tool-item--hidden {
+.hidden {
   opacity: 0;
   height: 0;
 }

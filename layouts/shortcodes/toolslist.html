@@ -11,6 +11,9 @@
           };
         })
       </script>
+      <div class='tools-list__empty hidden'>
+        <h3>There are no tools that fit your criteria.</h3>
+      </div>
       <div id='{{ .name }}-tool-item' class='tool-item'>
         <img class='tool-item__icon' src='{{ .logo }}' />
         <ul class='tool-item__information'>
@@ -51,15 +54,22 @@
   const filters = {};
 
   function filterTools() {
+    let isEmpty = true;
     Object.keys(visibilityMap).forEach(function(key) {
       if (!visibilityMap[key].capabilities ||
         !visibilityMap[key].compatibilities ||
         !visibilityMap[key].datasets) {
-          document.getElementById(`${key}-tool-item`).classList.add('tool-item--hidden');
+          document.getElementById(`${key}-tool-item`).classList.add('hidden');
         } else {
-          document.getElementById(`${key}-tool-item`).classList.remove('tool-item--hidden');
+          isEmpty = false;
+          document.getElementById(`${key}-tool-item`).classList.remove('hidden');
         }
     })
+    if (isEmpty) {
+      document.querySelector('.tools-list__empty').classList.remove('hidden');
+    } else {
+      document.querySelector('.tools-list__empty').classList.add('hidden');
+    }
   }
 
   function updateVisibleTools(dropdownType) {

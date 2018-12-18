@@ -3,7 +3,7 @@
 {{- $tools := .Get 2 }}
 
 {{ with .Get 0 }}
-  <div class='dropdown'>
+  <div id='{{ $className }}-dropdown' class='dropdown'>
       <div id='{{ $className }}-select' class='dropdown__select'>
         <div id='{{ $className }}-value' class='dropdown__input'>{{ $selection }}</div>
         <img class='dropdown__icon' src='img/icons/dropdown.svg' onclick='onClick("{{$className}}")'/>
@@ -19,9 +19,20 @@
   </div>
 {{ end }}
 <script>
+  document.body.addEventListener('click', function(event) {
+    if (!document.getElementById('{{ $className }}-dropdown').contains(event.target)) {
+      closeMenu('{{ $className }}');
+    }
+  })
+
   function onClick(className) {
     document.getElementById(`${className}-menu`).classList.toggle('dropdown__menu--open');
     document.getElementById(`${className}-select`).classList.toggle('dropdown__select--menu-open');
+  }
+
+  function closeMenu(className) {
+    document.getElementById(`${className}-menu`).classList.remove('dropdown__menu--open');
+    document.getElementById(`${className}-select`).classList.remove('dropdown__select--menu-open');
   }
 
   function onChange(dropdownType, option, tools, placeolderText) {
