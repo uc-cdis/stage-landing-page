@@ -17,7 +17,7 @@ contactInformation:
       email: gen3@example.com
     terra:
       title: Terra
-      email: terra@example.com
+      email: saturn-dev@broadinstitute.org
     dockstore:
       title: DockStore
       email: dockstore@example.com

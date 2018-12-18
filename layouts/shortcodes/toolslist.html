@@ -1,7 +1,17 @@
 {{ with .Get 0 }}
   <div class='tools-list'>
     {{ range $.Page.Param . }}
-      <div class='tool-item'>
+      <script>
+        toolList['{{ .name }}'] = {{ . }}
+        Object.keys(toolList).forEach(function(tool) {
+          visibilityMap[tool] = {
+            capabilities: true,
+            compatibilities: true,
+            datasets: true,
+          };
+        })
+      </script>
+      <div id='{{ .name }}-tool-item' class='tool-item'>
         <img class='tool-item__icon' src='{{ .logo }}' />
         <ul class='tool-item__information'>
           <li class='tool-item__category'>
@@ -37,3 +47,36 @@
     {{ end }}
   </div>
 {{ end }}
+<script>
+  const filters = {};
+
+  function filterTools() {
+    Object.keys(visibilityMap).forEach(function(key) {
+      if (!visibilityMap[key].capabilities ||
+        !visibilityMap[key].compatibilities ||
+        !visibilityMap[key].datasets) {
+          document.getElementById(`${key}-tool-item`).classList.add('tool-item--hidden');
+        } else {
+          document.getElementById(`${key}-tool-item`).classList.remove('tool-item--hidden');
+        }
+    })
+  }
+
+  function updateVisibleTools(dropdownType) {
+    Object.keys(toolList).forEach(function(key) {
+      let tool = toolList[key];
+      visibilityMap[key][dropdownType] = this.isVisible(dropdownType, tool);
+    })
+    this.filterTools();
+  }
+
+  function isVisible(dropdownType, tool) {
+    let show = true;
+    filters[dropdownType].forEach(function(filter) {
+      if (!tool[dropdownType] || !tool[dropdownType].includes(filter.trim())) {
+        show = false;
+      }
+    })
+    return show;
+  }
+</script>

@@ -47,7 +47,7 @@ products:
 datasets:
   - GTex
   - TopMED
-tools:
+compatibilities:
   - DockStore
   - Gen3
   - Terra
@@ -64,8 +64,8 @@ capabilities:
 
 <h2 id="tools">Tools</h2>
 <div class='tools__filters'>
-  {{< dropdown "capabilities" "Select capabilities" >}}
-  {{< dropdown "tool" "Select compatible tools" >}}
-  {{< dropdown "datasets" "Select datasets" >}}
+  {{< dropdown "capabilities" "Select capabilities" products >}}
+  {{< dropdown "compatibilities" "Select compatible tools" products >}}
+  {{< dropdown "datasets" "Select datasets" products >}}
 </div>
 {{< toolslist products >}}

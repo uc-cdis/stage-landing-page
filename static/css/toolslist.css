@@ -4,12 +4,19 @@
 }
 
 .tool-item {
+  height: unset;
+  opacity: 1;
   width: 100%;
   padding: 20px 20px;
   margin: 20px 0;
   display: flex;
   align-items: center;
   border-top: 1px solid var(--highlight-color);
+}
+
+.tool-item--hidden {
+  opacity: 0;
+  height: 0;
 }
 
 .tool-item__icon {

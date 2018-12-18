@@ -20,6 +20,9 @@
   </div>
 </div>
 <script>
+const toolList = {};
+const visibilityMap = {};
+
 function openAccessPanel(accessLevel) {
   document.querySelector('.access-panel').classList.remove('hidden');
   if (accessLevel === 'none') {
