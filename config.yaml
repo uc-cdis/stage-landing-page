@@ -1,11 +1,11 @@
 baseURL: "http://example.org"
 languageCode: "en-us"
 title: "Data STAGE"
-sections: ["About", "Tools", "Contact"]
+sections: ["About", "Products", "Contact"]
 permalinks:
   sections: \#:title
 params:
   logo:
-    src: /img/datastage-logo.svg
+    src: /img/stage-logo.svg
     alt: Data STAGE Logo
   toolDropdownText: "Select your data set"

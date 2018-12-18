@@ -1,52 +1,49 @@
 {{ with .Get 0 }}
   <div class='tools-list'>
+    <div class='tools-list__empty hidden'>
+      <h3>There are no tools that fit your criteria.</h3>
+    </div>
     {{ range $.Page.Param . }}
-      <script>
-        toolList['{{ .name }}'] = {{ . }}
-        Object.keys(toolList).forEach(function(tool) {
-          visibilityMap[tool] = {
-            capabilities: true,
-            compatibilities: true,
-            datasets: true,
-          };
-        })
-      </script>
-      <div class='tools-list__empty hidden'>
-        <h3>There are no tools that fit your criteria.</h3>
-      </div>
-      <div id='{{ .name }}-tool-item' class='tool-item'>
-        <img class='tool-item__icon' src='{{ .logo }}' />
-        <ul class='tool-item__information'>
-          <li class='tool-item__category'>
-            <h3 class='tool-item__category-title'>Capabilities:</h3>
-            <ul class='tool-item__category-list'>
-              {{ range .capabilities }}
-                <li class='tool-item__tag'>{{ . }}</li>
-              {{ end }}
+      {{ $category := . }}
+      <h2>{{ $category }} </h2>
+      {{ range $.Page.Params.products }}
+        {{ if eq .category $category }}
+          <script>
+            toolList['{{ .name }}'] = {{ . }}
+            Object.keys(toolList).forEach(function(tool) {
+              visibilityMap[tool] = {
+                compatibilities: true,
+                datasets: true,
+              };
+            })
+          </script>
+          <div id='{{ .name }}-tool-item' class='tool-item'>
+            <img class='tool-item__icon' src='{{ .logo }}' />
+            <ul class='tool-item__information'>
+              <li class='tool-item__category'>
+                <h3 class='tool-item__category-title'>Compatible with:</h3>
+                <ul class='tool-item__category-list'>
+                  {{ range .compatibilities }}
+                    <li class='tool-item__tag'> {{ . }}</li>
+                  {{ end }}
+                </ul>
+              </li>
+              <li class='tool-item__category'>
+                <h3 class='tool-item__category-title'>Available datasets:</h3>
+                <ul class='tool-item__category-list'>
+                  {{ range .datasets }}
+                    <li class='tool-item__tag'> {{ . }}</li>
+                  {{ end }}
+                </ul>
+              </li>
             </ul>
-          </li>
-          <li class='tool-item__category'>
-            <h3 class='tool-item__category-title'>Compatible with:</h3>
-            <ul class='tool-item__category-list'>
-              {{ range .compatibilities }}
-                <li class='tool-item__tag'> {{ . }}</li>
-              {{ end }}
-            </ul>
-          </li>
-          <li class='tool-item__category'>
-            <h3 class='tool-item__category-title'>Available datasets:</h3>
-            <ul class='tool-item__category-list'>
-              {{ range .datasets }}
-                <li class='tool-item__tag'> {{ . }}</li>
-              {{ end }}
-            </ul>
-          </li>
-        </ul>
-        <div class='tool-item__buttons'>
-          <button onclick="window.open('{{ .url }}', '_blank')">Visit {{ .name }}</button>
-          <button onclick="window.open('{{ .documentation }}', '_blank')">Visit Documentation</button>
-        </div>
-      </div>
+            <div class='tool-item__buttons'>
+              <button onclick="window.open('{{ .url }}', '_blank')">Visit {{ .name }}</button>
+              <button onclick="window.open('{{ .documentation }}', '_blank')">Visit Documentation</button>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
     {{ end }}
   </div>
 {{ end }}
@@ -56,9 +53,7 @@
   function filterTools() {
     let isEmpty = true;
     Object.keys(visibilityMap).forEach(function(key) {
-      if (!visibilityMap[key].capabilities ||
-        !visibilityMap[key].compatibilities ||
-        !visibilityMap[key].datasets) {
+      if (!visibilityMap[key].compatibilities || !visibilityMap[key].datasets) {
           document.getElementById(`${key}-tool-item`).classList.add('hidden');
         } else {
           isEmpty = false;

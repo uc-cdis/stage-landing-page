@@ -1,25 +1,21 @@
 ---
-title: "Tools"
+title: "Products"
 date: 2018-12-14T11:33:55-06:00
 draft: true
 order: 2
 products:
   dockstore:
     name: DockStore
-    capabilities:
-      - Docker
+    category: Workflow
+    compatibilities:
+      - Gen3
+      - Terra
     logo: img/dockstore.png
     documentation: https://dockstore.org
     url: https://docs.dockstore.org/
   gen3:
     name: Gen3
-    capabilities:
-      - Authentication
-      - Authorization
-      - Data Exploration
-      - Data Upload
-      - Docker
-      - Indexing
+    category: Exploration
     compatibilities:
       - Terra
     datasets:
@@ -30,8 +26,7 @@ products:
     logo: img/gen3.png
   terra:
     name: Terra
-    capabilities:
-      - Data Analysis
+    category: Analysis
     compatibilities:
       - Gen3
     datasets:
@@ -51,21 +46,17 @@ compatibilities:
   - DockStore
   - Gen3
   - Terra
-capabilities:
-  - Authentication
-  - Authorization
-  - CWL
-  - Data Exploration
-  - Data Analysis
-  - Data Upload
-  - Docker
-  - Indexing
+categories:
+  - Exploration
+  - Analysis
+  - Workflow
 ---
 
-<h2 id="tools">Tools</h2>
-<div class='tools__filters'>
-  {{< dropdown "capabilities" "Select capabilities" products >}}
-  {{< dropdown "compatibilities" "Select compatible tools" products >}}
-  {{< dropdown "datasets" "Select datasets" products >}}
+<div class='products'>
+  <h1 id="products">Products</h1>
+  <div class='tools__filters'>
+    {{< dropdown "compatibilities" "Select compatible products" products >}}
+    {{< dropdown "datasets" "Select datasets" products >}}
+  </div>
+  {{< toolslist categories >}}
 </div>
-{{< toolslist products >}}

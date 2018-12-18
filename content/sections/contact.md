@@ -4,7 +4,7 @@ date: 2018-12-14T11:33:53-06:00
 draft: true
 order: 3
 logos:
-  general: img/datastage-logo.svg
+  general: img/stage-logo.svg
   calcium: img/calcium.png
 contactInformation:
   general:
@@ -24,14 +24,16 @@ contactInformation:
 
 ---
 
-<h2 id="contact">Contact</h2>
 <div class='contact'>
-  <div class='contact__info'>
-    <img class='contact__logo' src="{{< param "logos.general" >}}"/>
-    {{< makelist "contactInformation.general" >}}
-  </div>
-  <div class='contact__info'>
-    <img class='contact__logo' src="{{< param "logos.calcium" >}}"/>
-    {{< makelist "contactInformation.calcium" >}}
+  <h1 id="contact">Contact</h1>
+  <div class='contact__content'>
+    <div class='contact__info'>
+      <img class='contact__logo' src="{{< param "logos.general" >}}"/>
+      {{< makelist "contactInformation.general" >}}
+    </div>
+    <div class='contact__info'>
+      <img class='contact__logo' src="{{< param "logos.calcium" >}}"/>
+      {{< makelist "contactInformation.calcium" >}}
+    </div>
   </div>
 </div>

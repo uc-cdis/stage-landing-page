@@ -5,18 +5,31 @@ draft: false
 type: "section"
 order: 1
 ---
-
-<h2 id="about">About</h2>
 <div class='about'>
-  <div class='about__intro'>
-    <p>The DataSTAGE <a href='https://www.nhlbi.nih.gov/science/data-storage-toolspace-access-and-analytics-big-data-empowerment-data-stage'>(Storage, Toolspace, Access and analytics for biG data Empowerment)</a> project aims to create a community of practice that is motivated to collaboratively solve technical challenges to enable NHLBI investigators to find, access, share, store, cross-link, and compute on large-scale data sets. Though the primary goal of the DataSTAGE Consortium is to build a data science platform, at its core this is a people-centric endeavor.</p>
-    <br/>
-    <p>The relationship between DataSTAGE and the Data Commons Pilot Phase Consortium (DCPPC) is quite straightforward:</p>
-    <br />
-    <p>DataSTAGE is meant to be one (early) instance of the Data Commons, particularized for the purposes of NHLBI. These are two separate, but related projects, meant to be mutually beneficial.</p>
-    <br />
-    <p>There are expectations that the DCPPC and DataSTAGE will each cross-inform the other project of significant processes, emerging standards, and decisions using an RFC process.</p>
-    <br />
-    <p>This should permit loose coupling, and yet parallel progress, in order to reap the benefits of both of these two efforts.</p>
+  <h1 id="about">About</h1>
+  <div class='about__content'>
+    <div class='about__intro'>
+      <p>Data STAGE <a href='https://www.nhlbi.nih.gov/science/data-storage-toolspace-access-and-analytics-big-data-empowerment-data-stage'>(Storage, Toolspace, Access and analytics for biG data Empowerment)</a> directly addresses the NHLBI Strategic Vision objective of leveraging emerging opportunities in data science to open new frontiers in heart, lung, blood, and sleep (HLBS) research. Building on the Data Commons infrastructure, Data STAGE offers specialized search functions, controlled access to data, and analytic tools via widely available programming interfaces. With these capabilities, NHLBI researchers and other scientists can use NHLBI datasets for scientific discovery.</p><br />
+      <p>NHLBI’s Data STAGE is an innovative computing solution, meeting the needs our research community through a cloud-based platform for tools, applications, and workflows. It is a virtual shared space where scientists can access and work with the digital objects of biomedical research, such as data and software.</p>
+    </div>
+    {{< accesspanel >}}
   </div>
-  {{< accesspanel >}}
+  <div class='getting-started__content'>
+    <h2 id="getting-started">Getting Started</h2>
+      <div class='no-access-panel'>
+        <h3>No Access?</h3>
+        <img class='access-panel__icon' src='img/icons/dropdown.svg'/>
+      </div>
+      <div class='check-access-panel'>
+        <h3>Check Access</h3>
+        <img class='access-panel__icon' src='img/icons/dropdown.svg'/>
+      </div>
+      <ol>
+        <li>Check your access here.</li>
+        <li>Select your exploration tool. Exploration tools allow users to search NHLBI datasets, providing for quick and easy creation of virtual cohorts that can be exported to an analysis tool.</li>
+        <li>Select your analysis tool. Analysis tools yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada.</li>
+        <li>Select applicable workflows. Workflows yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada.</li>
+      </ol>
+    </div>
+  </div>
+</div>
