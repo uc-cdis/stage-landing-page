@@ -19,8 +19,8 @@ products:
     compatibilities:
       - Terra
     datasets:
-      - TopMED
-      - GTex
+      - TOPMed
+      - GTEx
     documentation: https://gen3.org
     url: https://gen3.org
     logo: img/gen3.png
@@ -34,14 +34,14 @@ products:
       - UK Biobank
       - Human Cell Atlas
       - AMP Parkinson's Disease
-      - TopMED
-      - GTex
+      - TOPMed
+      - GTEx
     url: https://bvdp-saturn-prod.appspot.com
     documentation: https://bvdp-saturn-prod.appspot.com/#library/showcase
     logo: img/terra.svg
 datasets:
-  - GTex
-  - TopMED
+  - GTEx
+  - TOPMed
 compatibilities:
   - DockStore
   - Gen3
