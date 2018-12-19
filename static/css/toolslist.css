@@ -13,6 +13,14 @@
   border-top: 1px solid var(--gray);
 }
 
+@media screen and (max-width: 768px) {
+  .tool-item {
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+}
+
 .hidden {
   opacity: 0;
   height: 0;
@@ -21,7 +29,22 @@
 .tool-item__icon {
   padding: 20px 20px;
   margin-right: 10px;
-  width: 200px;
+  width: 20%;
+}
+
+@media screen and (max-width: 768px) {
+  .tool-item__icon {
+    width: 30%;
+    margin: auto;
+  }
+}
+
+
+@media screen and (max-width: 548px) {
+  .tool-item__icon {
+    width: 40%;
+    margin: auto;
+  }
 }
 
 .tool-item__information {
@@ -64,4 +87,10 @@
   display: flex;
   flex-flow: column;
   flex-basis: 20%;
+}
+
+@media screen and (max-width: 768px) {
+  .tool-item__buttons {
+    margin: auto;
+  }
 }
