@@ -54,8 +54,15 @@
   margin-top: 0;
   padding-inline-start: 0px;
   overflow: scroll;
-  width: 448px;
+  width: calc(50% - 10px - 50px - 2px);
   background-color: var(--white);
+}
+
+@media screen and (max-width: 548px) {
+  .dropdown__menu--open {
+    position: relative;
+    width: calc(100% - 2px);
+  }
 }
 
 .dropdown__menu-item {

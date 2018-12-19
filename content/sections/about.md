@@ -23,7 +23,8 @@ order: 1
             <img class='access-panel__icon' src='img/icons/dropdown.svg' onclick="toggleNoAccessPanel()"/>
           </div>
           <div class='no-access-panel__information closed'>
-            This is the information on how to get access!
+            <p>Without Data STAGE access, you will be limited in your data analysis abilities but can still utilize public datasets.</p>
+            <button onclick="browsePublic()">Browse Products with Public Datasets</button>
           </div>
         </div>
         <div class='access-panel'>
@@ -32,7 +33,9 @@ order: 1
             <img class='access-panel__icon' src='img/icons/dropdown.svg' onclick="toggleCheckAccessPanel()"/>
           </div>
           <div class='check-access-panel__information closed'>
-            This is the information on how to check access!
+            <p>To check if you have access to Data STAGE, please click the button below. You will be prompted
+            to log into the Data STAGE portal.</p>
+            <button onclick="window.open('https://gen3.org', 'blank')">Check Access</button>
           </div>
         </div>
         <ol>

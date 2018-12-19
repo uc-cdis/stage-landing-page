@@ -1,6 +1,5 @@
 {{- $className := .Get 0 }}
 {{- $selection := .Get 1 }}
-{{- $tools := .Get 2 }}
 
 {{ with .Get 0 }}
   <div id='{{ $className }}-dropdown' class='dropdown'>
@@ -11,7 +10,7 @@
       <ul id='{{ $className }}-menu' class='dropdown__menu'>
         {{ range $.Page.Param . }}
             <li class='dropdown__menu-item'>
-              <input id='{{ . }}' type='checkbox' onclick="onChange('{{ $className }}', ' {{ . }}', '{{ $tools }}', '{{ $selection }}')"/>
+              <input id='{{ . }}' type='checkbox' onclick="onChange('{{ $className }}', ' {{ . }}')"/>
               {{ . }}
             </li>
         {{ end }}
@@ -35,16 +34,18 @@
     document.getElementById(`${className}-select`).classList.remove('dropdown__select--menu-open');
   }
 
-  function onChange(dropdownType, option, tools, placeolderText) {
+  function onChange(dropdownType, option, retain) {
     if (!filters[dropdownType]) {
       filters[dropdownType] = [];
     }
     if (filters[dropdownType].includes(option)) {
-      filters[dropdownType] = filters[dropdownType].filter(elt => elt !== option);
+      if (!retain) {
+        filters[dropdownType] = filters[dropdownType].filter(elt => elt !== option);
+      }
     } else {
       filters[dropdownType].push(option);
     }
-    document.getElementById(`${dropdownType}-value`).innerHTML = filters[dropdownType].length > 0 ? filters[dropdownType] : placeolderText;
-    updateVisibleTools(dropdownType, tools);
+    document.getElementById(`${dropdownType}-value`).innerHTML = filters[dropdownType].length > 0 ? filters[dropdownType] : '{{ $selection }}';
+    updateVisibleTools(dropdownType);
   }
 </script>

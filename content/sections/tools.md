@@ -21,6 +21,7 @@ products:
     datasets:
       - TopMED
       - GTex
+      - Public
     documentation: https://gen3.org
     url: https://gen3.org
     logo: img/gen3.png
@@ -36,12 +37,14 @@ products:
       - AMP Parkinson's Disease
       - TopMED
       - GTex
+      - Public
     url: https://bvdp-saturn-prod.appspot.com
     documentation: https://bvdp-saturn-prod.appspot.com/#library/showcase
     logo: img/terra.svg
 datasets:
   - GTex
   - TopMED
+  - Public
 compatibilities:
   - DockStore
   - Gen3
