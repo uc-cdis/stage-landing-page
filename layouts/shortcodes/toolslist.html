@@ -87,6 +87,12 @@
 
   function browsePublic() {
     onChange('datasets', 'Public', true);
+    document.getElementById('Public').checked = true;
     window.location.href = '#products';
+    const elt = document.getElementById('datasets-select');
+    elt.classList.add('highlight-dropdown');
+    setTimeout(function() {
+      elt.classList.remove('highlight-dropdown');
+    }, 4001);
   }
 </script>

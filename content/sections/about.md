@@ -18,9 +18,9 @@ order: 1
     <div class='getting-started__content'>
       <h2 id="getting-started">Getting Started</h2>
         <div class='access-panel'>
-          <div class='access-panel__header'>
+          <div class='access-panel__header' role='button' onclick="toggleNoAccessPanel()">
             <h3>No Access?</h3>
-            <img class='access-panel__icon' src='img/icons/dropdown.svg' onclick="toggleNoAccessPanel()"/>
+            <img class='access-panel__icon' src='img/icons/dropdown.svg'/>
           </div>
           <div class='no-access-panel__information closed'>
             <p>Without Data STAGE access, you will be limited in your data analysis abilities but can still utilize public datasets.</p>
@@ -28,9 +28,9 @@ order: 1
           </div>
         </div>
         <div class='access-panel'>
-          <div class='access-panel__header'>
+          <div class='access-panel__header' role='button' onclick="toggleCheckAccessPanel()">
             <h3>Check Access</h3>
-            <img class='access-panel__icon' src='img/icons/dropdown.svg' onclick="toggleCheckAccessPanel()"/>
+            <img class='access-panel__icon' src='img/icons/dropdown.svg' />
           </div>
           <div class='check-access-panel__information closed'>
             <p>To check if you have access to Data STAGE, please click the button below. You will be prompted

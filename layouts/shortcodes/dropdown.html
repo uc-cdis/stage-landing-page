@@ -35,6 +35,7 @@
   }
 
   function onChange(dropdownType, option, retain) {
+    option = option.trim();
     if (!filters[dropdownType]) {
       filters[dropdownType] = [];
     }
