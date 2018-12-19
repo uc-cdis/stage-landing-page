@@ -18,10 +18,12 @@
             })
           </script>
           <div id='{{ .name }}-tool-item' class='tool-item'>
-            <img class='tool-item__icon' src='{{ .logo }}' />
+            <div class='tool-item__icon-section'>
+              <img class='tool-item__icon' src='{{ .logo }}' />
+            </div>
             <ul class='tool-item__information'>
               <li class='tool-item__category'>
-                <h4 class='tool-item__category-title'>Compatible with:</h4>
+                <h4 class=tool-item__category-title>Compatible with:</h4>
                 <ul class='tool-item__category-list'>
                   {{ range .compatibilities }}
                     <li class='tool-item__tag'> {{ . }}</li>

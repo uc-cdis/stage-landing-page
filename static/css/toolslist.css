@@ -9,7 +9,7 @@
   padding: 20px 20px;
   margin: 20px 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   border-top: 1px solid var(--gray);
 }
 
@@ -26,42 +26,49 @@
   height: 0;
 }
 
-.tool-item__icon {
-  padding: 20px 20px;
-  margin-right: 10px;
-  width: 20%;
+.tool-item__icon-section {
+  flex-basis: 20%;
 }
 
 @media screen and (max-width: 800px) {
-  .tool-item__icon {
-    width: 30%;
-    margin: auto;
+  .tool-item__icon-section {
+    flex-basis: unset;
   }
 }
 
+.tool-item__icon {
+  padding: 20px 20px;
+  margin-right: 10px;
+  width: 200px;
+}
 
 @media screen and (max-width: 548px) {
   .tool-item__icon {
-    width: 40%;
-    margin: auto;
+    width: 150px;
   }
 }
 
 .tool-item__information {
   list-style-type: none;
   padding-inline-start: 0;
-  flex-basis: 65%;
+  flex-basis: 60%;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .tool-item__information {
+    margin-bottom: 20px;
+    flex-basis: unset;
+  }
 }
 
 .tool-item__category {
-  display: flex;
-  align-items: center;
-  padding-inline-start: 20px;
-  margin-bottom: 20px;
+  padding-inline-start: 0;
+  margin-bottom: 10px;
 }
 
 .tool-item__category-title {
-  margin-right: 10px;
+  margin: 5px 0;
 }
 
 .tool-item__category-list {
@@ -89,10 +96,17 @@
   display: flex;
   flex-flow: column;
   flex-basis: 20%;
+  align-self: stretch;
+  justify-content: center;
+  border-left: 1px solid var(--gray);
+  padding-left: 30px;
 }
 
 @media screen and (max-width: 800px) {
   .tool-item__buttons {
-    margin: auto;
+    flex-basis: unset;
+    width: 100%;
+    border: 0;
+    padding-left: 0;
   }
 }
