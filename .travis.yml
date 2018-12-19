@@ -1,0 +1,25 @@
+language: node_js
+sudo: required
+env:
+  global:
+  - AWS_BUCKET=$(if [ "$TRAVIS_BRANCH" == "master" ]; then echo "datastage.io"; else
+    echo "alpha.datastage.io"; fi)
+before_script:
+- wget https://github.com/gohugoio/hugo/releases/download/v0.42.2/hugo_0.42.2_Linux-64bit.deb
+- sudo dpkg -i hugo*.deb
+- echo $AWS_BUCKET
+script:
+- if [ "$TRAVIS_BRANCH" == "master" ]; then rm static/robots.txt; fi
+- hugo
+deploy:
+  provider: s3
+  access_key_id: AKIAJ4XWIXRASOGMSFCA
+  secret_access_key:
+    secure: DVw3+f36j4t5tOn9Yh7WI9hAEjDGgkGd5bm9pHblfACiLmcMpNFDs+wWCuiSkZm+4BWnNBq+tsD3Sbt0u2Thhq0tVb+IdhLATp71gDg21Re3P0sdxikcywnpziecOs+2fAYs1cZEjgckg4OaeEFTNqwH3nvmKpsz+4mSdtDaf5g7HWu0vQkUOMJYvI9tau4/4wBgq/6aGK9GU5PoqffZF9i3DJW+77dqCYEM6mL9ziCamA4g32wnyKX+bzjEOJUqgXrfuntFMDlD8uoSYYe2imdxA2Bh2vnwuxCbV4x0n/b9+BAEodxunyHAlubn3zBFpvXLgQ4zD23NerQe+qjQDIpuE5iElnK3JYpviJ48U0ycaSKpPLoG33ri/uGvHjVyHNuX9bC+PMuwk1etthmKv1ip9CKHhxNB+7zO/uHpY5HiV54uODTLBvNHX3lqEQq5BRIOeJ+Jjtfuhz8e+3bi0VF1UQfHJ7s90aw0NDV1MI7lCMC3OMPp1ez9qTtu1FxDBcdcrjZsjEVNgnLIA1UYwZMZiDAxh7YvEnvlEI0Wtc+SPGsrolmjxA+j8j310V4Ke11xfOt9zd7YcYhdb49Vc9yqPRl1D46w+UBNIX6VvMWq23hoUZkNeGKLmCbjt2VUpLcUztMIZB6JlecqCbcKd5r3rGPg+VEQahXiygLvuKw=
+  bucket: "$AWS_BUCKET"
+  local_dir: public
+  skip_cleanup: true
+  acl: public_read
+  on:
+    repo: uc-cdis/stage-landing-page
+    all_branches: true
