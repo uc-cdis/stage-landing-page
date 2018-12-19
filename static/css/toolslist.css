@@ -51,6 +51,7 @@
 .tool-item__information {
   list-style-type: none;
   padding-inline-start: 0;
+  -webkit-padding-start: 0;
   flex-basis: 60%;
   margin: 0 20px;
 }
@@ -64,6 +65,7 @@
 
 .tool-item__category {
   padding-inline-start: 0;
+  -webkit-padding-start: 0;
   margin-bottom: 10px;
 }
 
@@ -73,6 +75,7 @@
 
 .tool-item__category-list {
   padding-inline-start: 0;
+  -webkit-padding-start: 0;
 }
 
 .tool-item__tag {
