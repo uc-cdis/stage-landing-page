@@ -1,7 +1,7 @@
 ---
 title: "Products"
 date: 2018-12-14T11:33:55-06:00
-draft: true
+draft: false
 order: 2
 products:
   dockstore:
@@ -19,8 +19,8 @@ products:
     compatibilities:
       - Terra
     datasets:
-      - TopMED
-      - GTex
+      - TOPMed
+      - GTEx
       - Public
     documentation: https://gen3.org
     url: https://gen3.org
@@ -35,15 +35,15 @@ products:
       - UK Biobank
       - Human Cell Atlas
       - AMP Parkinson's Disease
-      - TopMED
-      - GTex
+      - TOPMed
+      - GTEx
       - Public
     url: https://bvdp-saturn-prod.appspot.com
     documentation: https://bvdp-saturn-prod.appspot.com/#library/showcase
     logo: img/terra.svg
 datasets:
-  - GTex
-  - TopMED
+  - GTEx
+  - TOPMed
   - Public
 compatibilities:
   - DockStore

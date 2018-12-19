@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 date: 2018-12-14T11:33:53-06:00
-draft: true
+draft: false
 order: 3
 logos:
   general: img/stage-logo.svg
