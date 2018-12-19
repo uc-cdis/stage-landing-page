@@ -8,7 +8,7 @@
   height: 80px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .header {
     flex-flow: column;
   }
@@ -18,7 +18,7 @@
   width: 400px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .header__logo {
     width: 100%;
   }
@@ -32,7 +32,7 @@
   margin-left: 40px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .header__link-section > :first-child {
     margin-left: 0;
   }

@@ -13,7 +13,7 @@
   border-top: 1px solid var(--gray);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .tool-item {
     flex-flow: column;
     align-items: flex-start;
@@ -32,7 +32,7 @@
   width: 20%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .tool-item__icon {
     width: 30%;
     margin: auto;
@@ -89,7 +89,7 @@
   flex-basis: 20%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .tool-item__buttons {
     margin: auto;
   }
