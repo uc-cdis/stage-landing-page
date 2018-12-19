@@ -21,7 +21,7 @@
             <img class='tool-item__icon' src='{{ .logo }}' />
             <ul class='tool-item__information'>
               <li class='tool-item__category'>
-                <h3 class='tool-item__category-title'>Compatible with:</h3>
+                <h4 class='tool-item__category-title'>Compatible with:</h4>
                 <ul class='tool-item__category-list'>
                   {{ range .compatibilities }}
                     <li class='tool-item__tag'> {{ . }}</li>
@@ -29,7 +29,7 @@
                 </ul>
               </li>
               <li class='tool-item__category'>
-                <h3 class='tool-item__category-title'>Available datasets:</h3>
+                <h4 class='tool-item__category-title'>Available datasets:</h4>
                 <ul class='tool-item__category-list'>
                   {{ range .datasets }}
                     <li class='tool-item__tag'> {{ . }}</li>

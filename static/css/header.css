@@ -19,3 +19,11 @@
 .header__link-section > * {
   margin-left: 40px;
 }
+
+.header__link-section a {
+  color: var(--white);
+}
+
+.header__link-section a:hover {
+  color: var(--blue);
+}

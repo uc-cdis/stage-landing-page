@@ -52,8 +52,8 @@ categories:
   - Workflow
 ---
 
-<div class='products'>
-  <h1 id="products">Products</h1>
+<div id="products" class='products'>
+  <h1>Products</h1>
   <div class='tools__filters'>
     {{< dropdown "compatibilities" "Select compatible products" products >}}
     {{< dropdown "datasets" "Select datasets" products >}}

@@ -1,27 +1,34 @@
 <div class='about__access'>
   <h3>Do you have access to STAGE?</h3>
   <button class='about__button' onclick="window.location.href = '#getting-started'">Yes</button>
-  <button class='about__button' onclick="openAccessPanel('none')">No</button>
-  <button class='about__button' onclick="openAccessPanel('notSure')">I Don't Know</button>
+  <button class='about__button' onclick="openNoAccessPanel(); window.location.href = '#getting-started'">No</button>
+  <button class='about__button' onclick="openCheckAccessPanel(); window.location.href = '#getting-started'">I Don't Know</button>
 </div>
 <script>
 const toolList = {};
 const visibilityMap = {};
 
-function openAccessPanel(accessLevel) {
-  document.querySelector('.access-panel').classList.remove('hidden');
-  if (accessLevel === 'none') {
-    document.querySelector('.no-access').classList.remove('hidden');
-    document.querySelector('.not-sure-access').classList.add('hidden');
-  } else {
-    document.querySelector('.no-access').classList.add('hidden');
-    document.querySelector('.not-sure-access').classList.remove('hidden');
-  }
+function openNoAccessPanel() {
+  document.querySelector('.no-access-panel__information').classList.remove('closed');
 }
 
-function closeAccessPanel() {
-  document.querySelector('.access-panel').classList.add('hidden');
-  document.querySelector('.not-sure-access').classList.add('hidden');
-  document.querySelector('.no-access').classList.add('hidden');
+function openCheckAccessPanel() {
+  document.querySelector('.check-access-panel__information').classList.remove('closed');
+}
+
+function closeNoAccessPanel() {
+  document.querySelector('.no-access-panel__information').classList.add('closed');
+}
+
+function closeCheckAccessPanel() {
+  document.querySelector('.check-access-panel__information').classList.add('closed');
+}
+
+function toggleNoAccessPanel() {
+  document.querySelector('.no-access-panel__information').classList.toggle('closed');
+}
+
+function toggleCheckAccessPanel() {
+  document.querySelector('.check-access-panel__information').classList.toggle('closed');
 }
 </script>

@@ -6,12 +6,11 @@
 .tool-item {
   height: unset;
   opacity: 1;
-  width: 100%;
   padding: 20px 20px;
   margin: 20px 0;
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--highlight-color);
+  border-top: 1px solid var(--gray);
 }
 
 .hidden {
@@ -54,7 +53,7 @@
   background-color: var(--blue);
   padding: 5px 5px;
   border-radius: var(--border-radius);
-  margin: 0 5px;
+  margin: 5px 3px;
 }
 
 .tool-item__tag:hover {

@@ -10,6 +10,7 @@
   border-radius: var(--border-radius);
   height: 36px;
   padding: 5px 10px;
+  background-color: var(--white);
 }
 
 .dropdown__select--menu-open {
