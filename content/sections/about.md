@@ -35,7 +35,13 @@ order: 1
           <div class='check-access-panel__information closed'>
             <p>To check if you have access to Data STAGE, please click the button below. You will be prompted
             to log into the Data STAGE portal.</p>
-            <button onclick="window.open('https://gen3.org', 'blank')">Check Access</button>
+            <button onclick="checkAccessToken()">Check Access</button>
+            <div class='check-access-panel__success closed'>
+              Success! You have access!
+            </div>
+            <div class='check-access-panel__no-access closed'>
+              You do not have access :(
+            </div>
           </div>
         </div>
         <ol>

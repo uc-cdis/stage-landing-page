@@ -31,4 +31,21 @@ function toggleNoAccessPanel() {
 function toggleCheckAccessPanel() {
   document.querySelector('.check-access-panel__information').classList.toggle('closed');
 }
+
+function checkAccessToken() {
+  var query = window.location.href.split('?');
+  window.location.href = '#getting-started';
+  query = query.length > 1 ? query[1] : query[0];
+  var params = query.split('&');
+  for (var i = 0; i < params.length; ++i) {
+    var values = params[i].split('=');
+    if (values[0] === 'token' && !!values[1]) {
+      document.querySelector('.check-access-panel__success').classList.remove('closed');
+      document.querySelector('.check-access-panel__no-access').classList.add('closed');
+    } else if (values[0] === 'token') {
+      document.querySelector('.check-access-panel__no-access').classList.remove('closed');
+      document.querySelector('.check-access-panel__success').classList.add('closed');
+    }
+  }
+}
 </script>
