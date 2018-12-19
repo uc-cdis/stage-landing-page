@@ -5,7 +5,7 @@ env:
   - AWS_BUCKET=$(if [ "$TRAVIS_BRANCH" == "master" ]; then echo "datastage.io"; else
     echo "alpha.datastage.io"; fi)
 before_script:
-- wget https://github.com/gohugoio/hugo/releases/download/v0.42.2/hugo_0.42.2_Linux-64bit.deb
+- wget https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_0.52_Linux-64bit.deb
 - sudo dpkg -i hugo*.deb
 - echo $AWS_BUCKET
 script:
