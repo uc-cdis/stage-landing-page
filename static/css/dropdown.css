@@ -94,8 +94,38 @@
   border: none;
 }
 
-.dropdown__menu-item input[type='checkbox'] {
-  margin-right: 10px;
+.dropdown__menu-item p {
+  margin-top: 3px;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: var(--white);
+  height: 18px;
+  width: 18px;
+  border: 1px solid var(--gray);
+  border-radius: 2px;
+  margin: 0 10px 0 0;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+input[type='checkbox']:checked {
+  background: var(--gray);
+}
+
+input[type='checkbox']:checked:after {
+    content: '✓';    /* or '\2713', or '\2714' */
+    position: relative;
+    left: 4px;
+    top: 1px;
+    color: var(--white);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
 }
 
 .highlight-dropdown {

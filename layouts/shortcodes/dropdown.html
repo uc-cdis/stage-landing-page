@@ -11,7 +11,7 @@
         {{ range $.Page.Param . }}
             <li class='dropdown__menu-item'>
               <input id='{{ . }}' type='checkbox' onclick="onChange('{{ $className }}', ' {{ . }}')"/>
-              {{ . }}
+                <p>{{ . }}</p>
             </li>
         {{ end }}
       </ul>
