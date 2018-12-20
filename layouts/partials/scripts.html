@@ -1,15 +1,12 @@
 {{ $clientId := getenv "CLIENT_ID" }}
 
-<div class='about__access'>
-  <h3>Do you have access to STAGE?</h3>
-  <button class='about__button' onclick="window.location.href = '#getting-started'">Yes</button>
-  <button class='about__button' onclick="openNoAccessPanel(); window.location.href = '#getting-started'">No</button>
-  <button class='about__button' onclick="openCheckAccessPanel(); window.location.href = '#getting-started'">I Don't Know</button>
-</div>
 <script>
-  const toolList = {};
+  document.addEventListener("DOMContentLoaded", this.shouldOpenProjectPanel);
+
+  const productList = {};
   const visibilityMap = {};
   var projects = [];
+  const filters = {};
 
   function openNoAccessPanel() {
     document.querySelector('.no-access-panel__information').classList.remove('closed');
@@ -65,5 +62,49 @@
     window.location = request;
   }
 
-  document.addEventListener("DOMContentLoaded", this.shouldOpenProjectPanel);
+  function filterProducts() {
+    let isEmpty = true;
+    Object.keys(visibilityMap).forEach(function(key) {
+      if (!visibilityMap[key].compatibilities || !visibilityMap[key].datasets) {
+          document.getElementById(`${key}-product-item`).classList.add('hidden');
+        } else {
+          isEmpty = false;
+          document.getElementById(`${key}-product-item`).classList.remove('hidden');
+        }
+    })
+    if (isEmpty) {
+      document.querySelector('.products-list__empty').classList.remove('hidden');
+    } else {
+      document.querySelector('.products-list__empty').classList.add('hidden');
+    }
+  }
+
+  function updateVisibleProducts(dropdownType) {
+    Object.keys(productList).forEach(function(key) {
+      let product = productList[key];
+      visibilityMap[key][dropdownType] = this.isVisible(dropdownType, product);
+    })
+    this.filterProducts();
+  }
+
+  function isVisible(dropdownType, product) {
+    let show = true;
+    filters[dropdownType].forEach(function(filter) {
+      if (!product[dropdownType] || !product[dropdownType].includes(filter.trim())) {
+        show = false;
+      }
+    })
+    return show;
+  }
+
+  function browsePublic() {
+    onChange('datasets', 'Public', true);
+    document.getElementById('Public').checked = true;
+    window.location.href = '#products';
+    const elt = document.getElementById('datasets-select');
+    elt.classList.add('highlight-dropdown');
+    setTimeout(function() {
+      elt.classList.remove('highlight-dropdown');
+    }, 4001);
+  }
 </script>

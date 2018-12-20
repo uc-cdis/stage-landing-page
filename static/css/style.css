@@ -148,20 +148,20 @@ button:hover {
   }
 }
 
-.tools__filters {
+.products__filters {
   display: flex;
 }
 
-.tools__filters > * {
+.products__filters > * {
   margin-right: 10px;
 }
 
 @media screen and (max-width: 548px) {
-  .tools__filters {
+  .products__filters {
     flex-flow: column;
   }
 
-  .tools__filters > * {
+  .products__filters > * {
     margin-right: 0;
   }
 }

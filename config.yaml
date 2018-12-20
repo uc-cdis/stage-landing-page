@@ -8,4 +8,4 @@ params:
   logo:
     src: /img/stage-logo.svg
     alt: Data STAGE Logo
-  toolDropdownText: "Select your data set"
+  productDropdownText: "Select your data set"

@@ -12,8 +12,8 @@ products:
       - Gen3
       - Terra
     logo: img/dockstore.png
-    documentation: https://dockstore.org
-    url: https://docs.dockstore.org/
+    documentation: https://docs.dockstore.org
+    url: https://dockstore.org/
   gen3:
     name: Gen3
     category: Exploration
@@ -23,7 +23,7 @@ products:
       - TOPMed
       - GTEx
       - Public
-    documentation: https://gen3.org
+    documentation: https://gen3.org/get-started/
     url: https://gen3.org
     logo: img/gen3.png
   terra:
@@ -58,9 +58,9 @@ categories:
 
 <div id="products" class='products'>
   <h1>Products</h1>
-  <div class='tools__filters'>
+  <div class='products__filters'>
     {{< dropdown "compatibilities" "Select compatible products" products >}}
     {{< dropdown "datasets" "Select datasets" products >}}
   </div>
-  {{< toolslist categories >}}
+  {{< productslist categories >}}
 </div>
