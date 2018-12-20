@@ -6,6 +6,10 @@
   --light-gray: #F3F3F3;
   --highlight-color: var(--blue);
   --border-radius: 5px;
+  --stage-red: #C5203E;
+  --stage-blue: #1E2F53;
+  --stage-orange: #E17325;
+  --stage-green: #006F7E;
 }
 
 html {
@@ -122,6 +126,46 @@ button:hover {
 
 .about__button {
   width: 150px;
+}
+
+.about__color-list {
+  list-style: none;
+}
+
+.about__color-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.about__color-list-item:before {
+  content: ' ';
+  border-radius: 100%;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  display: inline-table;
+}
+
+.about__color-list-item.red:before {
+  background-color: var(--stage-red);
+  border: 1px solid var(--stage-red);
+}
+
+.about__color-list-item.green:before {
+  background-color: var(--stage-green);
+  border: 1px solid var(--stage-green);
+}
+
+.about__color-list-item.orange:before {
+  background-color: var(--stage-orange);
+  border: 1px solid var(--stage-orange);
+}
+
+.about__color-list-item.blue:before {
+  background-color: var(--stage-blue);
+  border: 1px solid var(--stage-blue);
 }
 
 .getting-started {
