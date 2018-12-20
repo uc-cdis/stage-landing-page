@@ -46,7 +46,7 @@
     } else {
       filters[dropdownType].push(option);
     }
-    document.getElementById(`${dropdownType}-value`).innerHTML = filters[dropdownType].length > 0 ? filters[dropdownType] : '{{ $selection }}';
+    document.getElementById(`${dropdownType}-value`).innerHTML = filters[dropdownType].length > 0 ? filters[dropdownType].join(', ') : '{{ $selection }}';
     updateVisibleTools(dropdownType);
   }
 </script>

@@ -2,6 +2,7 @@
 title: "Products"
 date: 2018-12-14T11:33:55-06:00
 draft: false
+type: "section"
 order: 2
 products:
   dockstore:

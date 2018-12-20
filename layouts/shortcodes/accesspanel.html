@@ -1,3 +1,5 @@
+{{ $clientId := getenv "CLIENT_ID" }}
+
 <div class='about__access'>
   <h3>Do you have access to STAGE?</h3>
   <button class='about__button' onclick="window.location.href = '#getting-started'">Yes</button>
@@ -5,47 +7,63 @@
   <button class='about__button' onclick="openCheckAccessPanel(); window.location.href = '#getting-started'">I Don't Know</button>
 </div>
 <script>
-const toolList = {};
-const visibilityMap = {};
+  const toolList = {};
+  const visibilityMap = {};
+  var projects = [];
 
-function openNoAccessPanel() {
-  document.querySelector('.no-access-panel__information').classList.remove('closed');
-}
+  function openNoAccessPanel() {
+    document.querySelector('.no-access-panel__information').classList.remove('closed');
+  }
 
-function openCheckAccessPanel() {
-  document.querySelector('.check-access-panel__information').classList.remove('closed');
-}
+  function openCheckAccessPanel() {
+    document.querySelector('.check-access-panel__information').classList.remove('closed');
+  }
 
-function closeNoAccessPanel() {
-  document.querySelector('.no-access-panel__information').classList.add('closed');
-}
+  function closeNoAccessPanel() {
+    document.querySelector('.no-access-panel__information').classList.add('closed');
+  }
 
-function closeCheckAccessPanel() {
-  document.querySelector('.check-access-panel__information').classList.add('closed');
-}
+  function closeCheckAccessPanel() {
+    document.querySelector('.check-access-panel__information').classList.add('closed');
+  }
 
-function toggleNoAccessPanel() {
-  document.querySelector('.no-access-panel__information').classList.toggle('closed');
-}
+  function toggleNoAccessPanel() {
+    document.querySelector('.no-access-panel__information').classList.toggle('closed');
+  }
 
-function toggleCheckAccessPanel() {
-  document.querySelector('.check-access-panel__information').classList.toggle('closed');
-}
+  function toggleCheckAccessPanel() {
+    document.querySelector('.check-access-panel__information').classList.toggle('closed');
+  }
 
-function checkAccessToken() {
-  var query = window.location.href.split('?');
-  window.location.href = '#getting-started';
-  query = query.length > 1 ? query[1] : query[0];
-  var params = query.split('&');
-  for (var i = 0; i < params.length; ++i) {
-    var values = params[i].split('=');
-    if (values[0] === 'token' && !!values[1]) {
-      document.querySelector('.check-access-panel__success').classList.remove('closed');
-      document.querySelector('.check-access-panel__no-access').classList.add('closed');
-    } else if (values[0] === 'token') {
-      document.querySelector('.check-access-panel__no-access').classList.remove('closed');
-      document.querySelector('.check-access-panel__success').classList.add('closed');
+  function shouldOpenProjectPanel() {
+    var anchor = window.location.href.split('#');
+    var query = anchor[0].split('?');
+    query = query.length > 1 ? query[1] : query[0];
+    var params = query.split('&');
+    for (var i = 0; i < params.length; ++i) {
+      var values = params[i].split('=');
+      if (values[0] === 'projects') {
+        projects = JSON.parse(decodeURIComponent(values[1]));
+        openProjectPanel();
+        break;
+      }
     }
   }
-}
+
+  function openProjectPanel() {
+    this.openCheckAccessPanel();
+    document.querySelector('.check-access-panel__projects').classList.remove('closed');
+    document.querySelector('.check-access-panel__projects').innerHTML = `You have access to the following projects: ${projects}`
+  }
+
+  function fetchAccessToken() {
+    const clientId = {{ $clientId }}
+    const redirectUri = encodeURIComponent('http://alpha.datastage.io/fence');
+    const responseType='id_token+token';
+    const scope='openid+user'
+    const request='https://dcp.bionimbus.org/user/oauth2/authorize?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType+'&scope='+scope;
+    window.location = request;
+  }
+
+  document.addEventListener("DOMContentLoaded", this.shouldOpenProjectPanel);
 </script>
