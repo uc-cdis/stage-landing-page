@@ -1,0 +1,51 @@
+{{ with .Get 0 }}
+  <div class='products-list'>
+    <div class='products-list__empty hidden'>
+      <h3>There are no products that fit your criteria.</h3>
+    </div>
+    {{ range $.Page.Param . }}
+      {{ $category := . }}
+      <h2>{{ $category }} </h2>
+      {{ range $.Page.Params.products }}
+        {{ if eq .category $category }}
+          <script>
+            productList['{{ .name }}'] = {{ . }}
+            Object.keys(productList).forEach(function(product) {
+              visibilityMap[product] = {
+                compatibilities: true,
+                datasets: true,
+              };
+            })
+          </script>
+          <div id='{{ .name }}-product-item' class='product-item'>
+            <div class='product-item__icon-section'>
+              <img class='product-item__icon' src='{{ .logo }}' />
+            </div>
+            <ul class='product-item__information'>
+              <li class='product-item__category'>
+                <h4 class=product-item__category-title>Compatible with:</h4>
+                <ul class='product-item__category-list'>
+                  {{ range .compatibilities }}
+                    <li class='product-item__tag'> {{ . }}</li>
+                  {{ end }}
+                </ul>
+              </li>
+              <li class='product-item__category'>
+                <h4 class='product-item__category-title'>Available datasets:</h4>
+                <ul class='product-item__category-list'>
+                  {{ range .datasets }}
+                    <li class='product-item__tag'> {{ . }}</li>
+                  {{ end }}
+                </ul>
+              </li>
+            </ul>
+            <div class='product-item__buttons'>
+              <button onclick="window.open('{{ .url }}', '_blank')">Visit {{ .name }}</button>
+              <button onclick="window.open('{{ .documentation }}', '_blank')">Visit Documentation</button>
+            </div>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

@@ -6,6 +6,7 @@
     <title>{{ .Title }}</title>
   </head>
   <body>
+    {{ partial "scripts.html" . }}
     {{ partial "header.html" . }}
     <div class='main'>
       {{ block "main" . }}

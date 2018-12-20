@@ -1,0 +1,115 @@
+.products-list {
+  display: flex;
+  flex-flow: column;
+}
+
+.product-item {
+  height: unset;
+  opacity: 1;
+  padding: 20px 20px;
+  margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+  border-top: 1px solid var(--gray);
+}
+
+@media screen and (max-width: 800px) {
+  .product-item {
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+}
+
+.product-item__icon-section {
+  flex-basis: 20%;
+}
+
+@media screen and (max-width: 800px) {
+  .product-item__icon-section {
+    flex-basis: unset;
+  }
+}
+
+.product-item__icon {
+  padding: 20px 20px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+@media screen and (max-width: 548px) {
+  .product-item__icon {
+    width: 150px;
+  }
+}
+
+.product-item__information {
+  list-style-type: none;
+  padding-inline-start: 0;
+  -webkit-padding-start: 0;
+  flex-basis: 60%;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .product-item__information {
+    margin-bottom: 20px;
+    flex-basis: unset;
+  }
+}
+
+.product-item__category {
+  padding-inline-start: 0;
+  -webkit-padding-start: 0;
+  margin-bottom: 10px;
+}
+
+.product-item__category-title {
+  margin: 5px 0;
+}
+
+.product-item__category-list {
+  padding-inline-start: 0;
+  -webkit-padding-start: 0;
+}
+
+.product-item__tag {
+  cursor: pointer;
+  display: inline-block;
+  color: var(--white);
+  list-style-type: none;
+  background-color: var(--secondary-highlight-color);
+  padding: 5px 5px;
+  border-radius: var(--border-radius);
+  margin: 5px 5px;
+  line-height: 1.9;
+  height: 25px;
+}
+
+.product-item__tag:hover {
+  background-color: var(--gray);
+}
+
+.product-item__buttons {
+  display: flex;
+  flex-flow: column;
+  flex-basis: 20%;
+  align-self: stretch;
+  justify-content: center;
+  border-left: 1px solid var(--gray);
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .product-item__buttons {
+    flex-basis: unset;
+    width: 100%;
+    border: 0;
+    padding-left: 0;
+  }
+}

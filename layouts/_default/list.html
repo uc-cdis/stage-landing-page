@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ range (.Pages.ByParam "order") }}
+  {{ range (where .Pages "Params.type" "section").ByParam "order" }}
     <div class='section'>
       {{ .Content }}
     </div>

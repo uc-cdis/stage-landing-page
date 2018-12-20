@@ -1,6 +1,7 @@
 ---
 title: "Contact"
 date: 2018-12-14T11:33:53-06:00
+type: "section"
 draft: false
 order: 3
 logos:
@@ -24,8 +25,8 @@ contactInformation:
 
 ---
 
-<div class='contact'>
-  <h1 id="contact">Contact</h1>
+<div id="contact" class='contact'>
+  <h1>Contact</h1>
   <div class='contact__content'>
     <div class='contact__info'>
       <img class='contact__logo' src="{{< param "logos.general" >}}"/>

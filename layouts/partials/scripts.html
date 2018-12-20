@@ -1,0 +1,110 @@
+{{ $clientId := getenv "CLIENT_ID" }}
+
+<script>
+  document.addEventListener("DOMContentLoaded", this.shouldOpenProjectPanel);
+
+  const productList = {};
+  const visibilityMap = {};
+  var projects = [];
+  const filters = {};
+
+  function openNoAccessPanel() {
+    document.querySelector('.no-access-panel__information').classList.remove('closed');
+  }
+
+  function openCheckAccessPanel() {
+    document.querySelector('.check-access-panel__information').classList.remove('closed');
+  }
+
+  function closeNoAccessPanel() {
+    document.querySelector('.no-access-panel__information').classList.add('closed');
+  }
+
+  function closeCheckAccessPanel() {
+    document.querySelector('.check-access-panel__information').classList.add('closed');
+  }
+
+  function toggleNoAccessPanel() {
+    document.querySelector('.no-access-panel__information').classList.toggle('closed');
+  }
+
+  function toggleCheckAccessPanel() {
+    document.querySelector('.check-access-panel__information').classList.toggle('closed');
+  }
+
+  function shouldOpenProjectPanel() {
+    var anchor = window.location.href.split('#');
+    var query = anchor[0].split('?');
+    query = query.length > 1 ? query[1] : query[0];
+    var params = query.split('&');
+    for (var i = 0; i < params.length; ++i) {
+      var values = params[i].split('=');
+      if (values[0] === 'projects') {
+        projects = JSON.parse(decodeURIComponent(values[1]));
+        openProjectPanel();
+        break;
+      }
+    }
+  }
+
+  function openProjectPanel() {
+    this.openCheckAccessPanel();
+    document.querySelector('.check-access-panel__projects').classList.remove('closed');
+    document.querySelector('.check-access-panel__projects').innerHTML = `You have access to the following projects: ${projects}`
+  }
+
+  function fetchAccessToken() {
+    const clientId = {{ $clientId }}
+    const redirectUri = encodeURIComponent('http://alpha.datastage.io/fence');
+    const responseType='id_token+token';
+    const scope='openid+user'
+    const request='https://dcp.bionimbus.org/user/oauth2/authorize?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType+'&scope='+scope;
+    window.location = request;
+  }
+
+  function filterProducts() {
+    let isEmpty = true;
+    Object.keys(visibilityMap).forEach(function(key) {
+      if (!visibilityMap[key].compatibilities || !visibilityMap[key].datasets) {
+          document.getElementById(`${key}-product-item`).classList.add('hidden');
+        } else {
+          isEmpty = false;
+          document.getElementById(`${key}-product-item`).classList.remove('hidden');
+        }
+    })
+    if (isEmpty) {
+      document.querySelector('.products-list__empty').classList.remove('hidden');
+    } else {
+      document.querySelector('.products-list__empty').classList.add('hidden');
+    }
+  }
+
+  function updateVisibleProducts(dropdownType) {
+    Object.keys(productList).forEach(function(key) {
+      let product = productList[key];
+      visibilityMap[key][dropdownType] = this.isVisible(dropdownType, product);
+    })
+    this.filterProducts();
+  }
+
+  function isVisible(dropdownType, product) {
+    let show = true;
+    filters[dropdownType].forEach(function(filter) {
+      if (!product[dropdownType] || !product[dropdownType].includes(filter.trim())) {
+        show = false;
+      }
+    })
+    return show;
+  }
+
+  function browsePublic() {
+    onChange('datasets', 'Public', true);
+    document.getElementById('Public').checked = true;
+    window.location.href = '#products';
+    const elt = document.getElementById('datasets-select');
+    elt.classList.add('highlight-dropdown');
+    setTimeout(function() {
+      elt.classList.remove('highlight-dropdown');
+    }, 4001);
+  }
+</script>
