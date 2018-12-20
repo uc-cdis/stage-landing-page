@@ -53,5 +53,5 @@
 }
 
 .header__link-section a:hover {
-  color: var(--blue);
+  color: var(--secondary-highlight-color);
 }

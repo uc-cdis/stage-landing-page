@@ -4,12 +4,13 @@
   --blue: #66B9EF;
   --gray: #393939;
   --light-gray: #F3F3F3;
-  --highlight-color: var(--blue);
-  --border-radius: 5px;
   --stage-red: #C5203E;
   --stage-blue: #1E2F53;
   --stage-orange: #E17325;
   --stage-green: #006F7E;
+  --primary-highlight-color: var(--stage-green);
+  --secondary-highlight-color: var(--stage-red);
+  --border-radius: 5px;
 }
 
 html {
@@ -26,7 +27,7 @@ ul, li, p {
 }
 
 h1, h2 {
-  color: var(--highlight-color);
+  color: var(--primary-highlight-color);
 }
 
 h3, h4 {
@@ -34,16 +35,16 @@ h3, h4 {
 }
 
 a {
-  color: var(--blue);
+  color: var(--secondary-highlight-color);
   text-decoration: none;
 }
 
 a:hover, a:active {
-  color: var(--gray);
+  color: var(--secondary-highlight-color);
 }
 
 button {
-  background-color: var(--blue);
+  background-color: var(--primary-highlight-color);
   border: none;
   border-radius: var(--border-radius);
   margin: 10px 10px;
@@ -63,7 +64,7 @@ button:hover {
 }
 
 .main a {
-  color: var(--highlight-color);
+  color: var(--secondary-highlight-color);
 }
 
 .main a:hover, .main a:active {

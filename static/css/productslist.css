@@ -83,7 +83,7 @@
   display: inline-block;
   color: var(--white);
   list-style-type: none;
-  background-color: var(--blue);
+  background-color: var(--secondary-highlight-color);
   padding: 5px 5px;
   border-radius: var(--border-radius);
   margin: 5px 5px;
