@@ -55,7 +55,7 @@
 
   function fetchAccessToken() {
     const clientId = {{ $clientId }}
-    const redirectUri = encodeURIComponent('http://alpha.datastage.io/fence');
+    const redirectUri = encodeURIComponent('https://datastage.io/fence');
     const responseType='id_token+token';
     const scope='openid+user'
     const request='https://dcp.bionimbus.org/user/oauth2/authorize?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType+'&scope='+scope;
