@@ -61,10 +61,9 @@ order: 1
           </div>
         </div>
         <ol>
-          <li>Check your access here.</li>
           <li>Select your exploration tool. Exploration tools allow users to search NHLBI datasets, providing for quick and easy creation of virtual cohorts that can be exported to an analysis tool.</li>
-          <li>Select your analysis tool. Analysis tools yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada.</li>
-          <li>Select applicable workflows. Workflows yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada yada.</li>
+          <li>Select your analysis platform. Analysis platforms provide tools to manipulate data and drive discovery.</li>
+          <li>Select applicable workflows. Workflows specify input and search parameters, allowing for repeatable processes that reduce redundant work associated with complex analysis.</li>
         </ol>
       </div>
     </div>

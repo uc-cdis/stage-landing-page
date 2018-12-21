@@ -9,6 +9,7 @@ products:
     name: DockStore
     category: Workflow
     compatibilities:
+      - DockStore
       - Gen3
       - Terra
     logo: img/dockstore.png
@@ -18,6 +19,8 @@ products:
     name: Gen3
     category: Exploration
     compatibilities:
+      - DockStore
+      - Gen3
       - Terra
     datasets:
       - TOPMed
@@ -30,7 +33,9 @@ products:
     name: Terra
     category: Analysis
     compatibilities:
+      - DockStore
       - Gen3
+      - Terra
     datasets:
       - Nurses' Health Study
       - UK Biobank
