@@ -7,19 +7,41 @@ order: 2
 products:
   dockstore:
     name: DockStore
-    category: Workflow
+    categories:
+      - Workflow
     compatibilities:
       - DockStore
+      - FAIR4CURES
       - Gen3
       - Terra
     logo: img/dockstore.png
     documentation: https://docs.dockstore.org
     url: https://dockstore.org/
-  gen3:
-    name: Gen3
-    category: Exploration
+  fair4cures:
+    name: FAIR4CURES
+    categories:
+      - Analysis
+      - Exploration
     compatibilities:
       - DockStore
+      - FAIR4CURES
+      - Gen3
+      - Terra
+    datasets:
+      - TOPMed
+      - GTEx
+      - MODs
+      - Public
+    documentation: https://docs.cancergenomicscloud.org/discuss
+    url: https://f4c.sbgenomics.com
+    logo: img/f4c-logo.svg
+  gen3:
+    name: Gen3
+    categories:
+      - Exploration
+    compatibilities:
+      - DockStore
+      - FAIR4CURES
       - Gen3
       - Terra
     datasets:
@@ -31,9 +53,11 @@ products:
     logo: img/gen3.png
   terra:
     name: Terra
-    category: Analysis
+    categories:
+      - Analysis
     compatibilities:
       - DockStore
+      - FAIR4CURES
       - Gen3
       - Terra
     datasets:
@@ -50,6 +74,7 @@ products:
 datasets:
   - GTEx
   - TOPMed
+  - MODs
   - Public
 compatibilities:
   - DockStore
