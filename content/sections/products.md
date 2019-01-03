@@ -26,7 +26,6 @@ products:
       - DockStore
       - FAIR4CURES
       - Gen3
-      - Terra
     datasets:
       - TOPMed
       - GTEx
@@ -57,7 +56,6 @@ products:
       - Analysis
     compatibilities:
       - DockStore
-      - FAIR4CURES
       - Gen3
       - Terra
     datasets:
