@@ -9,7 +9,7 @@
       {{ range $.Page.Params.products }}
         {{ if in .categories $category }}
           <script>
-            productList['{{ .name }}'] = {{ . }}
+            productList['{{ .name }}-{{ $category }}'] = {{ . }}
             Object.keys(productList).forEach(function(product) {
               visibilityMap[product] = {
                 compatibilities: true,
@@ -17,7 +17,7 @@
               };
             })
           </script>
-          <div id='{{ .name }}-product-item' class='product-item'>
+          <div id='{{ .name }}-{{ $category }}-product-item' class='product-item'>
             <div class='product-item__icon-section'>
               <img class='product-item__icon' src='{{ .logo }}' />
             </div>

@@ -76,6 +76,7 @@ datasets:
   - Public
 compatibilities:
   - DockStore
+  - FAIR4CURES
   - Gen3
   - Terra
 categories:
