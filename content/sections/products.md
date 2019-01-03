@@ -7,7 +7,8 @@ order: 2
 products:
   dockstore:
     name: DockStore
-    category: Workflow
+    categories:
+      - Workflow
     compatibilities:
       - DockStore
       - FAIR4CURES
@@ -18,7 +19,9 @@ products:
     url: https://dockstore.org/
   fair4cures:
     name: FAIR4CURES
-    category: Analysis
+    categories:
+      - Analysis
+      - Exploration
     compatibilities:
       - DockStore
       - FAIR4CURES
@@ -34,7 +37,8 @@ products:
     logo: img/f4c-logo.svg
   gen3:
     name: Gen3
-    category: Exploration
+    categories:
+      - Exploration
     compatibilities:
       - DockStore
       - FAIR4CURES
@@ -49,7 +53,8 @@ products:
     logo: img/gen3.png
   terra:
     name: Terra
-    category: Analysis
+    categories:
+      - Analysis
     compatibilities:
       - DockStore
       - FAIR4CURES

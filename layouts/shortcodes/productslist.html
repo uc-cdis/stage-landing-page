@@ -7,7 +7,7 @@
       {{ $category := . }}
       <h2>{{ $category }} </h2>
       {{ range $.Page.Params.products }}
-        {{ if eq .category $category }}
+        {{ if in .categories $category }}
           <script>
             productList['{{ .name }}'] = {{ . }}
             Object.keys(productList).forEach(function(product) {
