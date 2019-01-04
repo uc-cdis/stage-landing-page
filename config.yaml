@@ -1,4 +1,4 @@
-baseURL: "http://example.org"
+baseURL: http://{BASE_URL}/
 languageCode: "en-us"
 title: "Data STAGE"
 sections: ["About", "Products", "Contact"]
