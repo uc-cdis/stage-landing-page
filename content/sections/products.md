@@ -6,11 +6,11 @@ type: "section"
 order: 2
 products:
   dockstore:
-    name: DockStore
+    name: Dockstore
     categories:
       - Workflow
     compatibilities:
-      - DockStore
+      - Dockstore
       - FAIR4CURES
       - Gen3
       - Terra
@@ -23,7 +23,7 @@ products:
       - Analysis
       - Exploration
     compatibilities:
-      - DockStore
+      - Dockstore
       - FAIR4CURES
       - Gen3
     datasets:
@@ -39,7 +39,7 @@ products:
     categories:
       - Exploration
     compatibilities:
-      - DockStore
+      - Dockstore
       - FAIR4CURES
       - Gen3
       - Terra
@@ -55,7 +55,7 @@ products:
     categories:
       - Analysis
     compatibilities:
-      - DockStore
+      - Dockstore
       - Gen3
       - Terra
     datasets:
@@ -75,7 +75,7 @@ datasets:
   - MODs
   - Public
 compatibilities:
-  - DockStore
+  - Dockstore
   - FAIR4CURES
   - Gen3
   - Terra
