@@ -20,7 +20,7 @@ contactInformation:
       title: Terra
       email: saturn-dev@broadinstitute.org
     dockstore:
-      title: DockStore
+      title: Dockstore
       email: dockstore@example.com
 
 ---
