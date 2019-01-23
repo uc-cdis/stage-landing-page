@@ -48,7 +48,7 @@ products:
       - GTEx
       - Public
     documentation: https://gen3.org/get-started/
-    url: https://gen3.org
+    url: https://dcp.bionimbus.org
     logo: img/gen3.png
   terra:
     name: Terra
