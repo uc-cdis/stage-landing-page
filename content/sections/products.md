@@ -31,7 +31,7 @@ products:
       - GTEx
       - MODs
       - Public
-    documentation: https://docs.cancergenomicscloud.org/discuss
+    documentation: https://f4c.readme.io/docs
     url: https://f4c.sbgenomics.com
     logo: img/f4c-logo.svg
   gen3:
@@ -48,7 +48,7 @@ products:
       - GTEx
       - Public
     documentation: https://gen3.org/get-started/
-    url: https://dcp.bionimbus.org
+    url: https://gen3.datastage.io
     logo: img/gen3.png
   terra:
     name: Terra
