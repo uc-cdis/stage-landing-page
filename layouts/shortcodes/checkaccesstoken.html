@@ -8,7 +8,6 @@
     for (var i = 0; i < params.length; ++i) {
       var values = params[i].split('=');
       if (values[0] === 'access_token' && !!values[1]) {
-        const access_token = parseJwt(values[1]);
         projects = await getUserAccess(values[1])
         break;
       }
@@ -50,12 +49,5 @@
         throw Error(response.statusText);
     }
     return response;
-  }
-  function parseJwt(token) {
-    try {
-      return JSON.parse(atob(token.split('.')[1]));
-    } catch (e) {
-      return null;
-    }
   }
 </script>
