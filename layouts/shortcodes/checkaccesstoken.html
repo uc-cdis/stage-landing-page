@@ -1,7 +1,6 @@
 <script>
   checkAccessToken()
-
-  function checkAccessToken() {
+  async function checkAccessToken() {
     var query = window.location.href.split('?');
     query = query.length > 1 ? query[1] : query[0];
     var projects = {};
@@ -10,15 +9,48 @@
       var values = params[i].split('=');
       if (values[0] === 'access_token' && !!values[1]) {
         const access_token = parseJwt(values[1]);
-        projects = JSON.stringify(Object.keys(access_token.context.user.projects).map(function(proj) {
-          return `${proj}: ${access_token.context.user.projects[proj].join(', ')}`
-        }).join('; '));
+        projects = await getUserAccess(values[1])
         break;
       }
     }
     window.location.href = `/?projects=${projects}#getting-started`
   }
-
+  async function getUserAccess(token) {
+    // get the userinfo from Gen3's userinfo endpoint.
+    // this contains the dbgap accession numbers in the same format as the token in the
+    // "project_access" field. The textual representation of those is available in the
+    // "resources" field, which we will parse below
+    return fetch('https://gen3.datastage.io/user/user/', {
+       headers: new Headers({
+         'Authorization': `Bearer ${token}`
+       })
+    }).then(handleErrors).then((response) => {return response.json()})
+        .then((data) => {
+          var project_names = {};
+          data.resources.forEach(function(project) {
+            if (project.includes("/projects/")) {
+                // strip by /, get last item
+                var resources = project.split("/");
+                var project_resource = resources[resources.length-1];
+                // NOTE: project_resource is the textual representation of the
+                //       dbGaP accession number
+                // assume read privileges for listed resources
+                project_names[project_resource] = "read, read-storage"
+            }
+          });
+          var project_access = JSON.stringify(Object.keys(project_names).map(function(proj) {
+            return `${proj}: ${project_names[proj]}`
+          }).join('; '));
+          return project_access;
+        }
+    ).catch(error => console.log(error) );
+  }
+  function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+  }
   function parseJwt(token) {
     try {
       return JSON.parse(atob(token.split('.')[1]));
