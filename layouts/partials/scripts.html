@@ -58,7 +58,7 @@
     const redirectUri = encodeURIComponent('https://datastage.io/fence');
     const responseType='id_token+token';
     const scope='openid+user'
-    const request='https://gen3.datastage.io/user/oauth2/authorize?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType+'&scope='+scope;
+    const request='https://gen3.datastage.io/user/oauth2/authorize?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType+'&scope='+scope+'&nonce=landing';
     window.location = request;
   }
 
